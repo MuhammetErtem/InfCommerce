@@ -1,11 +1,11 @@
-﻿using System;
+﻿using InfCommerce.DAL.Migrations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace InfCommerce.DAL.Entities
 {
     [Table("Product")]
@@ -18,6 +18,8 @@ namespace InfCommerce.DAL.Entities
 
         [Column(TypeName = "varchar(150)"), Display(Name = "Ürün Açıklaması"), StringLength(150)]
         public string Description { get; set; }
+        [Column(TypeName = "text"), Display(Name = "Ürün Detayı")]
+        public string Detail { get; set; }
 
         [Column(TypeName ="decimal(18,2)"), Display(Name = "Satış Fiyatı")]
         public decimal Price { get; set; }
@@ -28,7 +30,7 @@ namespace InfCommerce.DAL.Entities
         [Display(Name = "Stok Miktarı")]
         public int Stock { get; set; }
 
-        public ICollection<ProductPicture> ProductPictures { get; set; }
+        public List<ProductPicture> ProductPictures { get; set; }
         public int? BrandID { get; set; }
         public Brand Brand { get; set; }
     }

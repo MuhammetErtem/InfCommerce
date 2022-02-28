@@ -1,18 +1,19 @@
-﻿using InfCommerce.DAL.DbContexts;
+﻿using InfCommerce.BL.Repositories;
+using InfCommerce.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InfCommerce.WebUI.ViewComponents
 {
     public class HeaderViewComponent: ViewComponent
     {
-        SqlContext db;
-        public HeaderViewComponent(SqlContext _db)
+        SqlRepo<Category> repoCategory;
+        public HeaderViewComponent(SqlRepo<Category> _repoCategory)
         {
-            db = _db;
+            repoCategory = _repoCategory;
         }
         public IViewComponentResult Invoke()
         {
-            return View(db.Category);  
+            return View(repoCategory.GetAll());
         }
     }
 }

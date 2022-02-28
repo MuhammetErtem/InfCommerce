@@ -1,4 +1,5 @@
-﻿using InfCommerce.DAL.DbContexts;
+﻿using InfCommerce.BL.Repositories;
+using InfCommerce.DAL.Entities;
 using InfCommerce.WebUI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,37 +10,26 @@ namespace InfCommerce.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        SqlContext db;
-        public HomeController(SqlContext _db)
+        SqlRepo<Slider> repoSlider;
+        SqlRepo<Product> repoProduct;
+        public HomeController(SqlRepo<Slider> _repoSlider, SqlRepo<Product> _repoProduct)
         {
-            db= _db;    
+            repoSlider = _repoSlider;
+            repoProduct = _repoProduct;
         }
         public IActionResult Index()
         {
             IndexVM indexVM = new IndexVM
             {
-                Slider = db.Slider,
-                LatestProducts = db.Product.Include(i => i.ProductPictures).OrderByDescending(o => o.ID).Take(5),
-                BestSellerProducts = db.Product.Include(i => i.ProductPictures).OrderBy(o => Guid.NewGuid()).Take(8)
-
+                Slider = repoSlider.GetAll(),
+                LatestProducts = repoProduct.GetAll().Include(i => i.ProductPictures).OrderByDescending(o => o.ID).Take(5),
+                BestSellerProducts = repoProduct.GetAll().Include(i => i.ProductPictures).OrderBy(o => Guid.NewGuid()).Take(8)
             };
             return View(indexVM);
         }
-        public IActionResult Card()
-        {
-            return View();
-        }
-        public IActionResult Category()
-        {
-            return View();
-        }
-        public IActionResult Checkout()
-        {
-            return View();
-        }
-        public IActionResult Product()
-        {
 
+        public IActionResult Test()
+        {
             return View();
         }
     }

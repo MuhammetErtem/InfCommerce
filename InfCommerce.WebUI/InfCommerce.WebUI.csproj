@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\js\datepicker\**" />
+    <Compile Remove="wwwroot\js\moment\**" />
+    <Content Remove="wwwroot\js\datepicker\**" />
+    <Content Remove="wwwroot\js\moment\**" />
+    <EmbeddedResource Remove="wwwroot\js\datepicker\**" />
+    <EmbeddedResource Remove="wwwroot\js\moment\**" />
+    <None Remove="wwwroot\js\datepicker\**" />
+    <None Remove="wwwroot\js\moment\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="bundleconfig.json" />
   </ItemGroup>
 
@@ -22,10 +33,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\admin\Views\Home\Index.cshtml" />
+    <None Include="Areas\admin\Views\Home\Login.cshtml" />
     <None Include="bundleconfig.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\InfCommerce.BL\InfCommerce.BL.csproj" />
     <ProjectReference Include="..\InfCommerce.DAL\InfCommerce.DAL.csproj" />
   </ItemGroup>
 

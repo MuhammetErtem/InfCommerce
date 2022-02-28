@@ -97,6 +97,9 @@ namespace InfCommerce.DAL.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("varchar(150)");
 
+                    b.Property<string>("Detail")
+                        .HasColumnType("text");
+
                     b.Property<decimal>("DiscountPrice")
                         .HasColumnType("decimal(18,2)");
 

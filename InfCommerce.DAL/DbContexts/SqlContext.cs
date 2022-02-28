@@ -1,4 +1,5 @@
 ﻿using InfCommerce.DAL.Entities;
+using InfCommerce.DAL.Migrations;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -25,5 +26,6 @@ namespace InfCommerce.DAL.DbContexts
         public DbSet<News> News { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<ProductPicture> ProductPicture { get; set; }
+
     }
 }
