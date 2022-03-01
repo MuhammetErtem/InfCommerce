@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InfCommerce.WebUI.Areas.admin.Controllers
 {
-    [Area("admin"),Authorize]
+    [Area("admin")]
     public class HomeController : Controller
     {
         public IActionResult Index()
