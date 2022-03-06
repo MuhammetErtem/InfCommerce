@@ -16,5 +16,10 @@ namespace InfCommerce.WebUI.Areas.admin.Controllers
         {
             return View();
         }
+        [Route("/admin/giris"), AllowAnonymous,HttpPost]
+        public IActionResult Login(string mailaddress,string password)
+        {
+            return View();
+        }
     }
 }

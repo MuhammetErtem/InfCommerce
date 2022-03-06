@@ -31,7 +31,7 @@ namespace InfCommerce.DAL.Entities
         [Column(TypeName = "decimal(18,2)"), Display(Name = "Ürün Fiyatı")]
         public decimal Price { get; set; }
 
-        [Display(Name = "Görntülenme Sırası")]
+        [Display(Name = "Görüntülenme Sırası")]
         public int DisplayIndex { get; set; }
     }
 }
